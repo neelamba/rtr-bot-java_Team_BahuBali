@@ -1,6 +1,6 @@
 import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
-import dev.robocode.tankroyale.botapi.util.ColorUtil;
+
 
 // ------------------------------------------------------------------
 // MyFirstBot
@@ -26,7 +26,7 @@ public class BahuBaliBot extends Bot {
     // Called when a new round is started -> initialize and do some movement
     @Override
     public void run() {
-        setBodyColor(ColorUtil.fromHex("#FFFFFF"));
+        
         // Repeat while the bot is running
         while (isRunning()) {
             forward(100);
