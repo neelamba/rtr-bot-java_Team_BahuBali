@@ -14,12 +14,12 @@ public class BahuBali extends Bot {
 
     // The main method starts our bot
     public static void main(String[] args) {
-        new MyFirstBot().start();
+        new BahuBali().start();
     }
 
     // Constructor, which loads the bot config file
     BahuBali() {
-        super(BotInfo.fromFile("BahuBali.json"));
+        super(BotInfo.fromFile("/Users/vallurikotiharshavardhan/IdeaProjects/rtr-bot-java_Team_BahuBali/BahuBali/BahuBali.json"));
     }
 
     // Called when a new round is started -> initialize and do some movement
