@@ -29,10 +29,14 @@ public class BahuBaliBot extends Bot {
         while (isRunning()) {
             forward(100);
             turnGunRight(360);
+            fire(1);
             turnGunLeft(180);
+            fire(1);
             back(100);
             turnGunRight(360);
+            fire(1);
             turnGunLeft(180);
+            fire(1);
         }
     }
 
@@ -40,6 +44,12 @@ public class BahuBaliBot extends Bot {
     @Override
     public void onScannedBot(ScannedBotEvent e) {
         fire(3);
+        back(100);
+        turnRight(180);
+        fire(1);
+        forward(100);
+        turnLeft(180);
+        fire(1);
     }
 
 
@@ -48,7 +58,7 @@ public class BahuBaliBot extends Bot {
     public void onHitByBullet(HitByBulletEvent e) {
         // Calculate the bearing to the direction of the bullet
         var bearing = calcBearing(e.getBullet().getDirection());
-
+        fire(3);
         // Turn 90 degrees to the bullet direction based on the bearing
         turnLeft(90 - bearing);
     }
