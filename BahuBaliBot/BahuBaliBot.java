@@ -29,16 +29,19 @@ public class BahuBaliBot extends Bot {
         while (isRunning()) {
             forward(100);
             turnGunRight(360);
+            turnGunLeft(180);
             back(100);
             turnGunRight(360);
+            turnGunLeft(180);
         }
     }
 
     // We saw another bot -> fire!
     @Override
     public void onScannedBot(ScannedBotEvent e) {
-        fire(1);
+        fire(3);
     }
+
 
     // We were hit by a bullet -> turn perpendicular to the bullet
     @Override
