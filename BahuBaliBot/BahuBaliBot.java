@@ -26,7 +26,8 @@ public class BahuBaliBot extends Bot {
     // Called when a new round is started -> initialize and do some movement
     @Override
     public void run() {
-        ColorUtil.fromHex("#0000FF");
+        
+        ColorUtil.fromHex("#FF0000");
         // Repeat while the bot is running
         while (isRunning()) {
             forward(100);
@@ -40,26 +41,17 @@ public class BahuBaliBot extends Bot {
     @Override
     public void onScannedBot(ScannedBotEvent e) {
         fire(5);
-        back(100);
-        fire(3);
-        forward(100);
-        fire(5);
 }
 
 
-    // We were hit by a bullet -> turn perpendicular to the bullet
-    @Override
-    public void onHitByBullet(HitByBulletEvent e) {
-        // Calculate the bearing to the direction of the bullet
-        var bearing = calcBearing(e.getBullet().getDirection());
-        fire(3);     
-        // Turn 90 degrees to the bullet direction based on the bearing
-        turnLeft(90 - bearing);
-    }
-
 @Override
-    public void onHitWall(HitWallEvent e) {
-        setBack(100);
-        setTurnRight(90);
-    }
+public void onHitByBullet(HitByBulletEvent e) {
+    // Calculate the bearing to the direction of the bullet
+    var bearing = calcBearing(e.getBullet().getDirection());
+
+    // Turn 90 degrees to the bullet direction based on the bearing
+    turnLeft(90 - bearing);
+}
+
+
 }
