@@ -43,25 +43,12 @@ public class BahuBaliBot extends Bot {
     // We saw another bot -> fire!
     @Override
     public void onScannedBot(ScannedBotEvent e) {
-        if (e.getDirection() < 200 && e.getEnergy() < 200) { 
-            fire(3);
-        } else {
-            fire(1);
-        }
+        fire(5);
         back(100);
-        turnRight(180);
-        fire(1);
+        fire(3);
         forward(100);
-        turnLeft(180);
-        fire(1);
+        fire(5);
     }
-
-    // public void onScannedRobot(ScannedRobotEvent e) {
-    //     // Fire only when the enemy is close
-    //     if (e.getDistance() < 200) {
-    //         fire(1);
-    //     }
-    // }
 
 
     // We were hit by a bullet -> turn perpendicular to the bullet
