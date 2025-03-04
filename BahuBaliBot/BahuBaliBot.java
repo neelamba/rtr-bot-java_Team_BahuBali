@@ -30,9 +30,9 @@ public class BahuBaliBot extends Bot {
         // Repeat while the bot is running
         while (isRunning()) {
             forward(100);
-            turnGunRight(180);
+            turnGunRight(360);
             back(100);
-            turnGunRight(180);
+            turnGunRight(360);
         }
     }
 
