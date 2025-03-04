@@ -1,5 +1,6 @@
 import dev.robocode.tankroyale.botapi.*;
 import dev.robocode.tankroyale.botapi.events.*;
+import dev.robocode.tankroyale.botapi.util.ColorUtil;
 
 // ------------------------------------------------------------------
 // MyFirstBot
@@ -25,18 +26,13 @@ public class BahuBaliBot extends Bot {
     // Called when a new round is started -> initialize and do some movement
     @Override
     public void run() {
+        ColorUtil.fromHex("#0000FF");
         // Repeat while the bot is running
         while (isRunning()) {
             forward(100);
-            turnGunRight(360);
-            fire(1);
-            turnGunLeft(180);
-            fire(1);
+            turnGunRight(180);
             back(100);
-            turnGunRight(360);
-            fire(1);
-            turnGunLeft(180);
-            fire(1);
+            turnGunRight(180);
         }
     }
 
@@ -48,7 +44,7 @@ public class BahuBaliBot extends Bot {
         fire(3);
         forward(100);
         fire(5);
-    }
+}
 
 
     // We were hit by a bullet -> turn perpendicular to the bullet
@@ -56,8 +52,14 @@ public class BahuBaliBot extends Bot {
     public void onHitByBullet(HitByBulletEvent e) {
         // Calculate the bearing to the direction of the bullet
         var bearing = calcBearing(e.getBullet().getDirection());
-        fire(3);
+        fire(3);     
         // Turn 90 degrees to the bullet direction based on the bearing
         turnLeft(90 - bearing);
+    }
+
+@Override
+    public void onHitWall(HitWallEvent e) {
+        setBack(100);
+        setTurnRight(90);
     }
 }
