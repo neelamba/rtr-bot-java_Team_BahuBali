@@ -32,12 +32,13 @@ public class BahuBaliBot extends Bot {
             back(100);
             turnGunRight(360);
         }
+
     }
 
     // We saw another bot -> fire!
     @Override
     public void onScannedBot(ScannedBotEvent e) {
-        fire(5);
+         fire(3.0);
     }
 
     // We were hit by a bullet -> turn perpendicular to the bullet
@@ -49,4 +50,5 @@ public class BahuBaliBot extends Bot {
         // Turn 90 degrees to the bullet direction based on the bearing
         turnLeft(90 - bearing);
     }
+
 }
