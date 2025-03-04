@@ -26,7 +26,6 @@ public class BahuBaliBot extends Bot {
     // Called when a new round is started -> initialize and do some movement
     @Override
     public void run() {
-        setBodyColor(new Color(255, 255, 255));
         // Repeat while the bot is running
         while (isRunning()) {
             back(100);
